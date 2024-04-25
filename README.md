@@ -1,18 +1,19 @@
-# PureOrigin.API - C# Origin Launcher API
-A .NET API Wrapper for the Origin Launcher API
+# PureEA.API - C# EA App API
+A .NET API Wrapper for the EA App API
 Documentation is found below!
 
 ## Installation
-Our stable build is available from NuGet through the PureOrigin.API metapackage:
+@JaydenMaalouf 's upstream stable build is available from NuGet through the PureOrigin.API metapackage:
 - [PureOrigin.API](https://www.nuget.org/packages/PureOrigin.API/)
+However, it currently crashes because of a small change to the birthdate field.
 
 ## Getting Started
-Once you have added the NuGet Package to your Project, you will need to add the `using PureOrigin.API;` to your class header.
-Then simply instance the OriginAPI class with your Origin Email and Password, like so:
+Once you have added the NuGet Package to your Project, you will need to add the `using PureEA.API;` to your class header.
+Then simply instance the EADesktopAPI class with your EA Email and Password, like so:
 ```csharp
-var API = new OriginAPI("example@email.com", "password");
+var API = new EADesktopAPI("example@email.com", "password");
 ```
-Then login to Origin with the `LoginAsync()` call:
+Then login to EA with the `LoginAsync()` call:
 ```csharp
 var result = await API.LoginAsync();
 ```
@@ -21,7 +22,7 @@ The `result` boolean will be set to true or false depending on the login success
 #### Now you can easily make calls to the API!
 
 ## GetUserAsync()
-If you already know a user's UserId or Username, you can use the `GetUserAsync()` method to return an `OriginUser` object.
+If you already know a user's UserId or Username, you can use the `GetUserAsync()` method to return an `EAUser` object.
 - Username:
 ```csharp
 var user = await API.GetUserAsync("username");
@@ -45,6 +46,4 @@ var user = await API.GetUserAsync("username");
 var url = await user.GetAvatarUrlAsync();
 ```
 
-#### Thanks for using my wrapper ❤️ By Kanga#8041.
-
-**Please note: This API wrapper is for educational purposes only. I am not affiliated with Origin, EA or any of their entities/affiliates.**
+**Please note: This API wrapper is for educational purposes only. I am not affiliated with EA or any of their entities/affiliates.**
